@@ -96,64 +96,71 @@ The onClose function is triggered when the payment modal is closed without compl
 It shows an alert message indicating that the payment was cancelled or failed. You can customize
 this function to handle the appropriate actions for your application.
 
-
+```
 handler.openIframe();
+```
+
 This line opens the Paystack payment modal, allowing the user to enter 
 their payment details and complete the transaction.
 
-NOTE: 
+##NOTE: 
 
+```
 const handler = PaystackPop.setup({ ... }); 
+```
 
 initializes the Paystack transaction and assigns the returned transaction handler to the handler variable. 
 The transaction handler allows you to interact with the Paystack payment modal and handle the transaction.
 
-key: paystackPublicKey 
+`key: paystackPublicKey` 
 
 specifies the Paystack public API key obtained from your Paystack account.
 It authorizes the integration and allows communication with the Paystack API.
 
-email: email
+`email: email`
 
 sets the customer's email address for the transaction. It should be 
 a valid email address provided by the user in the registration form.
 
-amount: amountInKobo 
+`amount: amountInKobo` 
 
 specifies the amount to be paid in Kobo. The amountInKobo variable
 holds the value in Kobo that you want to charge the customer. In this example, 
 it is set to 5,000,000 Kobo, which is equivalent to 50,000 Naira (NGN). You can adjust this value as needed.
 
-currency: 'NGN' sets the currency code for the transaction. In this case, it is set to 'NGN' for Nigerian Naira. You can replace this value with the appropriate currency code for your application.
+`currency: 'NGN'`
 
-metadata: { name: name }
+sets the currency code for the transaction. In this case, it is set to 'NGN' for Nigerian Naira. You can replace this value with the appropriate currency code for your application.
+
+`metadata: { name: name }`
 
 allows you to attach additional metadata to the transaction. Here,
 it includes the customer's name obtained from the registration form. You can include 
 more key-value pairs in the metadata object if needed.
 
-The remaining code within the PaystackPop.setup() block includes other optional configuration 
+The remaining code within the `PaystackPop.setup()` block includes other optional configuration 
 options and callback functions such as callback and onClose, which handle the successful payment 
 and cancellation/failure events, respectively.
 
-Overall, the PaystackPop.setup() method configures the Paystack transaction with the provided
+Overall, the `PaystackPop.setup()` method configures the Paystack transaction with the provided
 parameters and returns a transaction handler that allows you to interact with the Paystack 
 payment modal and handle the transaction events.
 
 More meta data you can add based on what you want to add or have: 
  for instance:
 
+```
     metadata: {
         name: name,
         webinar: 'Front-end Webinar',
         ticketType: 'Premium',
         referralCode: 'ABC123',
     },
-    
+  ```  
 
 
 for reference use uuid or generate it on your own e.g
-
+ ```  
 // Generate a random number between 1000 and 9999
 const randomNumber = Math.floor(1000 + Math.random() * 9000);
 
@@ -161,9 +168,9 @@ const randomNumber = Math.floor(1000 + Math.random() * 9000);
 const uniqueReference = `jed2023-${randomNumber}`;
 
 console.log(uniqueReference); // Output: e.g., "jed2023-1234"
+  ```  
 
-
-But note:
+### But note:
 
 The Math.random() method in JavaScript is designed to generate pseudo-random numbers, which means 
 the generated numbers are not truly random but appear random.
@@ -176,14 +183,19 @@ One widely used method is the Universally Unique Identifier (UUID).
 
 Here's an example of generating a UUID using the uuid library in JavaScript:
 
-// Install the uuid package using npm or yarn: npm install uuid
-const { v4: uuidv4 } = require('uuid');
+// Install the uuid package using npm or yarn: 
+
+`npm install uuid`
+
+**Inside your script, add these lines
+```
+const uuid = require('uuid');
 
 // Generate a UUID
-const uniqueId = uuidv4();
+const uniqueId = uuid.v4();
 
 console.log(uniqueId);
-
+```
 
 
 To install the uuid package using npm, you can follow these steps:
@@ -195,7 +207,7 @@ cd path/to/your/project
 
 Once you are inside your project's directory, run the following command to install the uuid package:
 
-npm install uuid
+`npm install uuid`  as said above.
 
 This command will download and install the uuid package from the npm registry and add it as a dependency to your project.
 After the installation is complete, you can start using the uuid package in your JavaScript code by importing the necessary functions. For example:
@@ -203,42 +215,28 @@ After the installation is complete, you can start using the uuid package in your
 
 Make sure you have Node.js and npm installed on your system before running these commands.
 
-
-
-
 UUIDs (Universally Unique Identifiers) can be generated using different versions of the UUID algorithm. Each version has its own characteristics and use cases. Version 4 (v4) UUIDs are randomly generated and have a very low probability of collision. They are typically used when uniqueness is important, and cryptographic strength is not required.
 
-By using const { v4: uuidv4 } = require('uuid'), you are importing only the version 4 UUID generator function from the uuid package and assigning it to the variable uuidv4. This allows you to generate version 4 UUIDs using the uuidv4 function.
+## Using Your own Function
 
-So when you call uuidv4(), it generates a version 4 UUID (randomly generated) and assigns it to the uniqueId variable.
+The generateUUID() function is used to generate a version 4 UUID using the window.crypto object available in a web browser environment. 
 
-If you need to generate version 4 UUIDs specifically, you can use uuidv4() provided by the uuid package.
+>Here's a breakdown of how the function works:
 
+-It retrieves the window.crypto object, which provides access to cryptographic functions.
+-It creates a new Uint8Array of length 16 to store the random values for the UUID.
+-It calls the cryptoObj.getRandomValues(array) method to fill the array with random values.
+-It modifies specific elements in the array to set the version number and variant according to the UUID format.
+-It iterates over the array and converts each value to hexadecimal using array[i].toString(16). The padStart(2, '0') method ensures that each hexadecimal value is two characters long.
+-It concatenates the hexadecimal values together, inserting hyphens at specific positions to match the UUID format.
+-It returns the generated UUID.
+-To use this function, you can concatenate the webinarCode with the result of generateUUID() to create a unique identifier. 
 
-
-
-
-
-
-
-
-
-
-
-The generateUUID() function is used to generate a version 4 UUID using the window.crypto object available in a web browser environment. Here's a breakdown of how the function works:
-
-It retrieves the window.crypto object, which provides access to cryptographic functions.
-It creates a new Uint8Array of length 16 to store the random values for the UUID.
-It calls the cryptoObj.getRandomValues(array) method to fill the array with random values.
-It modifies specific elements in the array to set the version number and variant according to the UUID format.
-It iterates over the array and converts each value to hexadecimal using array[i].toString(16). The padStart(2, '0') method ensures that each hexadecimal value is two characters long.
-It concatenates the hexadecimal values together, inserting hyphens at specific positions to match the UUID format.
-It returns the generated UUID.
-To use this function, you can concatenate the webinarCode with the result of generateUUID() to create a unique identifier. 
+ ![Tux, the Linux mascot](/img/tux.avif)
 
 For example:
 
-const uniqueId = webinarCode + generateUUID();
+const uniqueId = webinarCode + generateUUID();`
 
 This will result in a string where webinarCode is prepended to the generated UUID.
 
@@ -248,21 +246,5 @@ In summary, using the uuid library from npm is a more general and recommended ap
 
 
 On the other hand, the generateUUID() function  is a custom implementation specifically tailored for web browser environments using the window.crypto object.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## END OF NOTE 
