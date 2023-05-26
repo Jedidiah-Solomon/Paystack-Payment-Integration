@@ -1,0 +1,102 @@
+/* General styles */
+html {
+   margin: 0;
+padding: 0; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fceed1;
+    clip-path: polygon(100% 0, 100% 52%, 39% 100%, 0 100%, 0 0);
+    position: absolute;
+    z-index: -1;
+    top: -4px;
+    left: 0;
+    width: 100%;
+    height: 130%;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    padding: 4px 8px;
+    margin:4px  auto;
+    background-image: url(../img/photo-2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-color: #871ae0;
+    background-blend-mode: darken;
+    color: gold;
+}
+
+/* Form styles */
+
+form {
+    margin-top: 20px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+label:last-child {
+    margin-top: 5px;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 96%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+select {
+    padding: 4px;
+    margin-bottom: 5px;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff9900;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+    transition: opacity 20ms easeout;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Webinar details section */
+
+.webinar-details {
+    margin-top: 40px;
+}
+
+/* Contact details section */
+
+.contact-details {
+    margin-top: 40px;
+}
+
+/*
+
+#registration-details {
+    display: none;
+}
+
+*/
+
+
