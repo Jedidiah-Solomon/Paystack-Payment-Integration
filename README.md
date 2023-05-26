@@ -233,7 +233,7 @@ The generateUUID() function is used to generate a version 4 UUID using the windo
 -It returns the generated UUID.
 -To use this function, you can concatenate the webinarCode with the result of generateUUID() to create a unique identifier. 
 
- ![Tux, the Linux mascot](/img/tux.avif)
+![Tux, the Linux mascot](/img/tux.avif)
 
 For example:
 
