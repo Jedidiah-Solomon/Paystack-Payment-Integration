@@ -1,4 +1,5 @@
 # Paystack-Payment-Integration
+<https://jedidiah-solomon.github.io/>
 
 
 ## How to use Paystack API keys to collect payment.
@@ -246,6 +247,14 @@ In summary, using the uuid library from npm is a more general and recommended ap
 
 
 On the other hand, the generateUUID() function  is a custom implementation specifically tailored for web browser environments using the window.crypto object.
+
+## The languages required to create say a landing page to collect payment with paystack.
+
+| Programmin Language  | Description 			|
+| -------------------- | -----------------------|
+| HTML      		   | Webpage Markup      	|
+| CSS		   		   | Styling        		|
+| JAVASCRIPT		   | Functionality and APIs |
 
 Visit my site [Jedidiah Solomon](https://jedidiah-solomon.github.io/JedybrownFolio/).
 
