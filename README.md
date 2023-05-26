@@ -13,8 +13,8 @@ const paystackPublicKey = 'pk_live_9aeb93844dc1beb38c613d53cb43efd8a1f23ffa';
 This line defines the Paystack public API key, which is used to initialize the Paystack transaction. 
 The provided key is a sample key and should be replaced with your actual Paystack public API key.
 
-// Handle form submission
 ```
+// Handle form submission
 document.getElementById('registration-form').addEventListener('submit', function(event) {
 event.preventDefault();
 ```
@@ -24,18 +24,22 @@ for the form submission event. When the form is submitted, the provided function
 The event.preventDefault() method is used to prevent the form from being submitted traditionally 
 (i.e., reloading the page).
 
+```
 const name = document.getElementById('name').value;
 const email = document.getElementById('email').value;
+```
 
-These lines retrieve the values entered in the "name" and "email" input fields
+These lines retrieve the values entered in the **"name"** and **"email"** input fields
 of the form and assign them to the respective variables.
 
+```
 const amountInKobo = 5000000;
+```
 
 This line sets the amount to be paid in Kobo. In this example, it is set to 5,000,000 Kobo, 
 which is equivalent to 50,000 Naira (NGN). You can adjust this value to match the desired amount.
 
-
+```
 const handler = PaystackPop.setup({
     key: paystackPublicKey,
     email: email,
@@ -58,7 +62,7 @@ const handler = PaystackPop.setup({
         alert('Payment cancelled or failed.');
     }
 });
-
+```
 
 This code initializes the Paystack transaction using the PaystackPop.setup() method. 
 PaystackPop.setup() is a method provided by the Paystack JavaScript library that enables
@@ -68,13 +72,15 @@ The Paystack JavaScript library is responsible for handling the integration with
 
 When you include the Paystack JavaScript library in your HTML file using the following script tag:
 
-'<script src="https://js.paystack.co/v1/inline.js"></script>'
+```
+<script src="https://js.paystack.co/v1/inline.js"></script>
+```
 
 It makes the PaystackPop object available, which contains the setup() method. 
 This method is used to configure and initialize the Paystack transaction, providing the
 necessary parameters such as the API key, customer email, amount, currency, and callback functions.
 
-The PaystackPop.setup() method allows you to customize the payment process and handle different
+The `PaystackPop.setup()` method allows you to customize the payment process and handle different
 events related to the payment, such as successful payment, payment cancellation, or failure 
 You can define your own callback functions to perform actions based on the outcome of the payment process.
 
