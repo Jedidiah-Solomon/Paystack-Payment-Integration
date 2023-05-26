@@ -236,7 +236,7 @@ The generateUUID() function is used to generate a version 4 UUID using the windo
 
 For example:
 
-const uniqueId = webinarCode + generateUUID();`
+`const uniqueId = webinarCode + generateUUID();`
 
 This will result in a string where webinarCode is prepended to the generated UUID.
 
