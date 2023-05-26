@@ -14,6 +14,7 @@ This line defines the Paystack public API key, which is used to initialize the P
 The provided key is a sample key and should be replaced with your actual Paystack public API key.
 
 // Handle form submission
+
 '''
 document.getElementById('registration-form').addEventListener('submit', function(event) {
 event.preventDefault();
