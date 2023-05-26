@@ -247,4 +247,6 @@ In summary, using the uuid library from npm is a more general and recommended ap
 
 On the other hand, the generateUUID() function  is a custom implementation specifically tailored for web browser environments using the window.crypto object.
 
+Visit my site [Jedidiah Solomon](https://jedidiah-solomon.github.io/JedybrownFolio/).
+
 ## END OF NOTE 
