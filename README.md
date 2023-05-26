@@ -4,7 +4,6 @@
 
 ## How to use Paystack API keys to collect payment.
 
-
 ### EXPLANATION    
 ```
 // Paystack Live public key
