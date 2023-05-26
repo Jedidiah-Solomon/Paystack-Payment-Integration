@@ -14,6 +14,10 @@ const paystackPublicKey = 'pk_live_9aeb93844dc1beb38c613d53cb43efd8a1f23ffa';
 This line defines the Paystack public API key, which is used to initialize the Paystack transaction. 
 The provided key is a sample key and should be replaced with your actual Paystack public API key.
 
+** Get Public API key
+
+`https://dashboard.paystack.com/#/settings/developers`
+
 ```
 // Handle form submission
 document.getElementById('registration-form').addEventListener('submit', function(event) {
